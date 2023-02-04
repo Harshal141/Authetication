@@ -17,9 +17,12 @@ app.use(express.static('public'));
 app.use(express.json({}));
 app.use(express.urlencoded({ extended: false }));
 
+
+// Handling route requests
+app.use('/', require('./routes/login'));
+app.use('/', require('./routes/register'));
+
 // Renderring the pages on requests
 app.get('/', (req, res) => res.render('index'));
-app.get('/login', (req, res) => res.render('login'));
-app.get('/register', (req, res) => res.render('register'));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
