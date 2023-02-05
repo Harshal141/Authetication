@@ -1,6 +1,9 @@
 // Creating express Router
 const express=require("express")
 const router=express.Router()
+
+const User = require('../models/User');
+const bcrypt = require('bcryptjs');
   
 // @route  GET /register
 // @desc   frender register page
@@ -12,7 +15,7 @@ router.get("/register",(req,res,next)=>{
 // @route  POST /register
 // @desc   for registering user
 // @access private
-router.post('/register', async (req, res) => {
+router.post('/register', async (req, res,next) => {
     const {name, email, password} = await req.body; // destructure
 
     try {
@@ -36,7 +39,7 @@ router.post('/register', async (req, res) => {
 
     } catch(err){
         console.error(err.message);
-        res.status(500).redirect('register.ejs');
+        res.status(500).redirect('/register');
     }   
 });
 
