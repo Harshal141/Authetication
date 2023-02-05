@@ -2,20 +2,27 @@
 const express=require("express")
 const router=express.Router()
 
-const User = require('../models/User');
+// importing bcrypt and jwt
 const bcrypt = require('bcryptjs');
-  
+const jwt = require('jsonwebtoken');
+const config = require('config');
+
+// importing models and middleware
+const User = require('../models/User');
+const auth = require('../middleware/auth');
+const notauth = require('../middleware/notauth');
+
 // @route  GET /register
 // @desc   frender register page
 // @access public
-router.get("/register",(req,res,next)=>{
+router.get("/register",notauth,(req,res,next)=>{
   res.render('register')
 })
 
 // @route  POST /register
 // @desc   for registering user
 // @access private
-router.post('/register', async (req, res,next) => {
+router.post('/register',notauth, async (req, res,next) => {
     const {name, email, password} = await req.body; // destructure
 
     try {

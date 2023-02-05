@@ -2,28 +2,32 @@
 const express=require("express")
 const router=express.Router()
 
-const User = require('../models/User');
+// importing bcrypt and jwt
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
+// importing models and middleware
+const User = require('../models/User');
+const auth = require('../middleware/auth');
+const notauth = require('../middleware/notauth');
 
 // @route  GET /login
 // @desc   render login page
 // @access public  
-router.get("/login",(req,res,next)=>{
+router.get("/login",notauth,(req,res,next)=>{
   res.render('login')
 })
 
 // @route  POST /login
 // @desc   login user
 // @access private
-router.post("/login", async (req,res,next)=>{
+router.post("/login",notauth, async (req,res,next)=>{
     
     const {email, password} = req.body; // destructure
 
     try {
-      
+
         let user = await User.findOne({email});
         
         if(!user){ // return error of type as above if user exists

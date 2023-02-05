@@ -1,5 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db')
+const auth = require('./middleware/auth');
+const notauth = require('./middleware/notauth');
 
 const app = express();
 const port = 3000;
@@ -23,6 +25,6 @@ app.use('/', require('./routes/login'));
 app.use('/', require('./routes/register'));
 
 // Renderring the pages on requests
-app.get('/', (req, res) => res.render('index'));
+app.get('/', auth, (req, res) => res.render('index'));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
