@@ -16,7 +16,7 @@ const notauth = require('../middleware/notauth');
 // @desc   frender register page
 // @access public
 router.get("/register",notauth,(req,res,next)=>{
-  res.render('register')
+  res.render('register',{error: ''})
 })
 
 // @route  POST /register
@@ -28,7 +28,7 @@ router.post('/register',notauth, async (req, res,next) => {
     try {
         let user = await User.findOne({email});
         if(user){ // return error of type as above if user exists 
-            return res.status(500).redirect('/register');
+            return res.status(500).render('register.ejs', {error: 'User already exists'});
         }
 
         user = new User({ // create new user instance
@@ -46,7 +46,7 @@ router.post('/register',notauth, async (req, res,next) => {
 
     } catch(err){
         console.error(err.message);
-        res.status(500).redirect('/register');
+        res.status(500).render('register.ejs', {error: 'Server Error'});
     }   
 });
 

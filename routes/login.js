@@ -16,7 +16,7 @@ const notauth = require('../middleware/notauth');
 // @desc   render login page
 // @access public  
 router.get("/login",notauth,(req,res,next)=>{
-  res.render('login')
+  res.render('login',{error: ''})
 })
 
 // @route  POST /login
@@ -31,12 +31,12 @@ router.post("/login",notauth, async (req,res,next)=>{
         let user = await User.findOne({email});
         
         if(!user){ // return error of type as above if user exists
-            return res.redirect('/login');  
+            return res.render('login.ejs',{error: 'Invalid Credentials'});
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if(!isMatch){
-            return res.redirect('/login');
+            return res.render('login.ejs',{error: 'Invalid Credentials'});
         }
 
         const payload = {
@@ -54,9 +54,17 @@ router.post("/login",notauth, async (req,res,next)=>{
 
     } catch(err){
         console.error(err.message);
-        res.status(500).redirect('/login');
+        res.status(500).render('login.ejs', {error: 'Server Error'});
     }   
 }
 );
+
+// @route  GET /logout
+// @desc   logout user
+// @access private  
+router.get("/logout",auth,(req,res,next)=>{
+    delete req.header['x-auth-token']; 
+    res.redirect('/');
+})
 
 module.exports=router

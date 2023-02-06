@@ -17,6 +17,13 @@
     <div class="login-container container mt-5">
         <h1 class="mb-2">Login User</h1>
 
+        <!-- Show error message if any -->
+        <% if(error){ %> 
+          <div class="alert alert-danger" role="alert">
+              <%= error %>
+          </div>
+        <% } %>
+        
         <form action = "/login" method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
