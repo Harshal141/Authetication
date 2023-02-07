@@ -5,7 +5,6 @@ const router=express.Router()
 // importing bcrypt and jwt
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('config');
 
 // importing models and middleware
 const User = require('../models/User');

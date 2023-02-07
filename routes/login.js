@@ -5,7 +5,12 @@ const router=express.Router()
 // importing bcrypt and jwt
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('config');
+
+// acessing jwt secret from default.json
+const fs = require('fs');
+var global_data = fs.readFileSync("default.json");
+global_data = JSON.parse(global_data);
+
 
 // importing models and middleware
 const User = require('../models/User');
@@ -45,7 +50,7 @@ router.post("/login",notauth, async (req,res,next)=>{
             }
         }
         // defining the token and sending it back to the client
-        jwt.sign(payload, config.get('jwtSecret'), (err, token)=>{
+        jwt.sign(payload, global_data['jwtSecret'], (err, token)=>{
             req.header['x-auth-token'] = token;
             console.log(req.header['x-auth-token']);
             if(err) throw err;
