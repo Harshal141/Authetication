@@ -1,0 +1,25 @@
+{
+  "name": "node-mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "",
+    "host": "concurrently \"npm run dev --prefix server\" \"npm start --prefix client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harshal141/Node-Authetication.git"
+  },
+  "author": "hp141",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harshal141/Node-Authetication/issues"
+  },
+  "homepage": "https://github.com/Harshal141/Node-Authetication#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3"
+  }
+}
