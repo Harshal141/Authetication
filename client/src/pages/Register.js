@@ -35,21 +35,43 @@ function App() {
 	}
 
   return (
-    <div className="App">
-      <h1>Register</h1>
-      <form onSubmit={registerUser}>
-        <label>Username </label>
-        <input value={name} onChange={(e)=>setName(e.target.value)}  type="text" name="username" />
-        <br />
-        <label>Email </label>
-        <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" name="email" />
-        <br />
-        <label>Password </label>
-        <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" name="password" />
-        <br />
-        <input type="submit" value="register"></input>
-      </form>
+    // <div className="App">
+    //   <h1>Register</h1>
+    //   <form onSubmit={registerUser}>
+    //     <label>Username </label>
+    //     <input value={name} onChange={(e)=>setName(e.target.value)}  type="text" name="username" />
+    //     <br />
+    //     <label>Email </label>
+    //     <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" name="email" />
+    //     <br />
+    //     <label>Password </label>
+    //     <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" name="password" />
+    //     <br />
+    //     <input type="submit" value="register"></input>
+    //   </form>
+    // </div>
+
+    <div className="register-container container mt-5">
+        <h1 className="mb-2">Register User</h1>
+
+        <form onSubmit={registerUser}>
+            <div className="mb-3">
+                <label for="name" className="form-label">Enter Name</label>
+                <input value={name} onChange={(e)=>setName(e.target.value)} type="text" className="form-control" id="exampleInputEmail1" name ="name" />
+            </div>
+            <div className="mb-3">
+                <label for="email" className="form-label">Email address</label>
+                <input value={email} onChange={(e)=>setEmail(e.target.value)} name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+            </div>
+            <div className="mb-3">
+                <label for="password" className="form-label">Password</label>
+                <input value={password} onChange={(e)=>setPassword(e.target.value)} name="password" type="password" className="form-control" id="exampleInputPassword1" required />
+            </div>
+            <button type="submit" className="btn btn-primary">Submit</button>
+            <div id="emailHelp" className="form-text mt-3">Already have an account <a href = '/login' >Login</a> </div>
+        </form>
     </div>
+    
 
   );
 }
