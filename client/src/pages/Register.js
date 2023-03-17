@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 
 function App() {
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ function App() {
     //   </form>
     // </div>
 
-    <div className="register-container container mt-5">
+    <div className="register-container container mt-5" style={{maxWidth:'600px'}}>
         <h1 className="mb-2">Register User</h1>
 
         <form onSubmit={registerUser}>
@@ -68,7 +68,7 @@ function App() {
                 <input value={password} onChange={(e)=>setPassword(e.target.value)} name="password" type="password" className="form-control" id="exampleInputPassword1" required />
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
-            <div id="emailHelp" className="form-text mt-3">Already have an account <a href = '/login' >Login</a> </div>
+            <div id="emailHelp" className="form-text mt-3">Already have an account <Link to = '/login' >Login</Link> </div>
         </form>
     </div>
     

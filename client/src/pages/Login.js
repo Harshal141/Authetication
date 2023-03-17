@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 function App() {
   const [email,setEmail] = useState('');
@@ -55,7 +56,7 @@ function App() {
             <input value={password} onChange={(e)=>setPassword(e.target.value)} name="password" type="password" className="form-control" id="exampleInputPassword1" required />
         </div>
         <button type="submit" className="btn btn-primary">Login</button>
-        <div id="emailHelp" className="form-text mt-3">Don't have an account <a href = '/register' >Register</a> </div>
+        <div id="emailHelp" className="form-text mt-3">Don't have an account <Link to = '/register' >Register</Link> </div>
 
     </form>
     </div>
