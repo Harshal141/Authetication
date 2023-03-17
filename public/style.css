@@ -1,9 +1,0 @@
-body{
-    margin: 0;
-    padding: 0;
-}
-
-/* login,register container size fix*/
-.login-container,.register-container{
-    max-width: 800px;
-}

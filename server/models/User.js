@@ -1,21 +1,22 @@
 const mongoose = require('mongoose');
+
 const UserSchema = new mongoose.Schema({
-    name: {
+    username: {
         type: String,
-        required: true
+        required: true,
     },
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
     },
     password: {
         type: String,
-        required: true
-    },
-    date: {
-        type: Date,
-        default: Date.now
+        required: true,
     }
-});
-module.exports = User = mongoose.model('user', UserSchema);
+},
+{collection: 'users-mern'});
+
+const User = mongoose.model('User', UserSchema);
+
+module.exports = User;
