@@ -1,16 +1,68 @@
-# flutter_application_1
+# Tech Stack Authentication System
 
-A new Flutter project.
+This repository contains an authentication system implemented in different tech stacks. Each tech stack is implemented in a separate branch. Below are the links to each branch and a brief description of the tech stack used.
 
-## Getting Started
+## Flutter Branch
 
-This project is a starting point for a Flutter application.
+[Flutter branch](https://github.com/Harshal141/Authetication/tree/flutter) contains the implementation of the authentication system using Flutter framework `ios only`.
 
-A few resources to get you started if this is your first Flutter project:
+## MERN Branch
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[MERN branch](https://github.com/Harshal141/Authetication/tree/mern) contains the implementation of the authentication system using MERN (MongoDB, Express.js, React.js, Node.js) stack.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Node.js with MongoDB Branch
+
+[Node.js with MongoDB branch](https://github.com/Harshal141/Authetication/tree/main) contains the implementation of the authentication system using Node.js and MongoDB.
+
+Feel free to check out each branch and see how the authentication system is implemented in different tech stacks.
+
+<br />
+
+# Node-Authetication and MERN Setup
+Login Signup system build with JWT web token and Authentication using NodeJS.
+
+### Local Installation
+Create default.js in config file:
+```json
+{
+    "mongoURI":"<mongoURL>",
+    "jwtSecret":"<secretCode>"
+}
+```
+Run the command:
+
+```bash
+$ npm i
+$ npm run dev
+```
+This should run the App on port 3000. Visit `http://localhost:3000` to run run the hosted app.
+
+<br />
+
+# Flutter Setup
+
+### Prerequisites
+
+The user must have flutter installed in their pc and little knowledge of flutter to start working.
+> **NOTE** The project is under construction so for testing please use android for debuging.
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/March-Madnes/PuneConnect.git
+   ```
+2. Install Flutter packages
+   ```sh
+   flutter pub get
+   ```
+3. Debgu the program
+   ```sh
+   flutter run
+  
+
+## License
+
+MIT License
+
+Copyright © 2023 Harshal Patil
